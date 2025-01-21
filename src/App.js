@@ -1,11 +1,18 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from './pages/Login/Login';
+import UserRoutes from "./pages/User/UserRoutes";
+import AdminRoutes from "./pages/Admin/AdminRoutes";
 import './App.css';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/user/*" element={<UserRoutes />} />
+        <Route path="/admin/*" element={<AdminRoutes />} />
+      </Routes>
+    </Router>
   );
 }
 
